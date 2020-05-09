@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AppFrame({ children, menuList, onClickItemMenu }) {
+function AppFrame({ children, title, menuList, onClickItemMenu }) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -39,7 +39,7 @@ function AppFrame({ children, menuList, onClickItemMenu }) {
     <div className={classes.root}>
       <AppBar
         drawerWidth={DRAWER_WIDTH}
-        title={"TODO: Title"}
+        title={title}
         onClickOpenDrawer={handleDrawerToggle}
       />
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -59,6 +59,7 @@ function AppFrame({ children, menuList, onClickItemMenu }) {
 
 AppFrame.propTypes = {
   children: PropTypes.any,
+  title: PropTypes.string,
   menuList: PropTypes.array,
   onClickItemMenu: PropTypes.func
 };
