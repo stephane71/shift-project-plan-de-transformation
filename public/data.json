@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Mobilité du quotidien",
+    "blocks": [
+      {
+        "title": "Réduire",
+        "text": "Réduire le nombre de kilomètres parcourus : urbanisme, télétravail, livraisons efficaces"
+      },
+      {
+        "title": "Induire",
+        "text": "Induire un report vers des modes moins carbonés et mieux\nremplis : marche, vélo, transports en commun, covoiturage,\npar des infrastructures adaptées"
+      },
+      {
+        "title": "Améliorer",
+        "text": "Améliorer les véhicules et leurs carburants : plus sobres, plus légers,\nplus aérodynamiques ; électrification du parc automobile ; motorisations alternatives pour les transports en commun routiers"
+      },
+      {
+        "title": "Accompagner",
+        "text": "Accompagner le changement de comportements et promouvoir une vision désirable de la mobilité décarbonée : politiques\nde publicité, gouvernance territoriale de la mobilité"
+      }
+    ]
+  },
+  {
+    "title": "Mobilité longue distance",
+    "blocks": [
+      {
+        "title": "Réduire",
+        "text": "réduire le nombre de kilomètres parcourus : téléconférences,\nvoyager autrement, outils de réduction de la mobilité carbonée, notamment aérienne"
+      },
+      {
+        "title": "Développer",
+        "text": "Développer massivement l’usage du train par un report modal\ndepuis la voiture et l’aérien : infrastructure et exploitation\nferroviaire"
+      },
+      {
+        "title": "Adapter",
+        "text": "Adapter l’usage des voitures et des avions : réduction des vitesses des voitures, voies de covoiturage sur autoroute ; diminution du nombre de classes supérieures de voyage en avion"
+      },
+      {
+        "title": "Améliorer",
+        "text": "Améliorer l’efficacité énergétique des véhicules : renouvellement des flottes d’avions, turbopropulseurs pour vols courts,\nplanification de l’avion à 2050"
+      }
+    ]
+  },
+  { "title": "Fret" },
+  { "title": "Santé" },
+  { "title": "Enseignement Supérieur\net Recherche (ESR)" },
+  { "title": "Usages numériques" },
+  { "title": "Culture" },
+  { "title": "Défense et sécurité intérieure" },
+  { "title": "Administration publique" }
+]
