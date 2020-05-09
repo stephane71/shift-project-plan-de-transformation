@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
 
 import { DRAWER_WIDTH } from "../../constants";
 
 import AppBar from "../AppBar";
 import Nav from "../Nav";
 import NavMenu from "../NavMenu";
-import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AppFrame({ children, menuList }) {
+function AppFrame({ children, menuList, onClickItemMenu }) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -44,7 +44,7 @@ function AppFrame({ children, menuList }) {
       />
       <nav className={classes.drawer} aria-label="mailbox folders">
         <Nav
-          menu={<NavMenu items={menuList} />}
+          menu={<NavMenu items={menuList} onClickItem={onClickItemMenu} />}
           open={mobileOpen}
           onClose={handleDrawerToggle}
         />
@@ -59,7 +59,8 @@ function AppFrame({ children, menuList }) {
 
 AppFrame.propTypes = {
   children: PropTypes.any,
-  menuList: PropTypes.array
+  menuList: PropTypes.array,
+  onClickItemMenu: PropTypes.func
 };
 
 export default AppFrame;
