@@ -4,8 +4,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
 
 import AppLayout from "../components/AppLayout";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import makeStore from "../makeStore";
 import "../styles.css";
 
@@ -26,7 +24,7 @@ class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <AppLayout footer={<Footer />} header={<Header />}>
+        <AppLayout>
           <CssBaseline />
           <Component {...pageProps} />
         </AppLayout>
