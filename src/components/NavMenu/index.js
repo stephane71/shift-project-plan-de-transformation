@@ -7,11 +7,11 @@ import ListBase from "../List";
 function NavMenu({ items, onClickItem }) {
   return (
     <div>
-      {items.map(item => (
-        <>
+      {items.map((item, i) => (
+        <React.Fragment key={i}>
           <ListBase items={item} onClickItem={onClickItem} />
           <Divider />
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
