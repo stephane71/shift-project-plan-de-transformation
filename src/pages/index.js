@@ -1,40 +1,36 @@
 import React, { useState } from "react";
 
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-
 import AppFrame from "../components/AppFrame";
+import SectorCard from "../components/SectorCard";
+import Home from "../components/Home";
 
-const TEST_MENU1 = ["Inbox", "Starred", "Send email", "Drafts"].map(
-  (text, i) => ({
-    id: text,
-    text,
-    icon: i % 2 === 0 ? <InboxIcon /> : <MailIcon />
-  })
-);
-const TEST_MENU2 = ["All mail", "Trash", "Spam"].map((text, i) => ({
-  id: text,
-  text,
-  icon: i % 2 === 0 ? <InboxIcon /> : <MailIcon />
+import data from "../../public/data.json";
+
+const TEST_MENU1 = data.map(item => ({
+  ...item,
+  id: item.title,
+  text: item.title
 }));
 
-function Home() {
+function Index() {
   const [pageContent, setPageContent] = useState(null);
 
-  function handleClickItemMenu(idItem) {
-    setPageContent(idItem);
+  function handleClickItemMenu(item) {
+    setPageContent(item);
   }
 
   return (
     <AppFrame
-      menuList={[TEST_MENU1, TEST_MENU2]}
+      menuList={[TEST_MENU1]}
       onClickItemMenu={handleClickItemMenu}
+      title=""
     >
-      {pageContent}
+      {pageContent && <SectorCard data={pageContent} />}
+      {!pageContent && <Home />}
     </AppFrame>
   );
 }
 
-Home.propTypes = {};
+Index.propTypes = {};
 
-export default Home;
+export default Index;
