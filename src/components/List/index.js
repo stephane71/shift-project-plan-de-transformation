@@ -6,9 +6,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-function ListItemDefault({ id, text, icon, onClick }) {
+function ListItemDefault({ item, onClick }) {
+  const { icon, text } = item;
+
   function handleClick() {
-    onClick(id);
+    onClick(item);
   }
 
   return (
@@ -20,9 +22,7 @@ function ListItemDefault({ id, text, icon, onClick }) {
 }
 
 ListItemDefault.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  text: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
+  item: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
@@ -42,7 +42,7 @@ List.defaultProps = {
         key={item.id}
         index={index}
         onClick={onClick}
-        {...item}
+        item={item}
       />
     );
   }
