@@ -4,12 +4,12 @@ import Divider from "@material-ui/core/Divider";
 
 import ListBase from "../List";
 
-function NavMenu({ items }) {
+function NavMenu({ items, onClickItem }) {
   return (
     <div>
       {items.map(item => (
         <>
-          <ListBase items={item} />
+          <ListBase items={item} onClickItem={onClickItem} />
           <Divider />
         </>
       ))}
