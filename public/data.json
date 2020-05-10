@@ -1,5 +1,6 @@
 [
   {
+    "keyword": "mobilite-du-quotidien",
     "title": "Mobilité du quotidien",
     "blocks": [
       {
@@ -21,6 +22,7 @@
     ]
   },
   {
+    "keyword": "mobilite-longue-distance",
     "title": "Mobilité longue distance",
     "blocks": [
       {
