@@ -10,7 +10,9 @@ function ListItemDefault({ item, onClick }) {
   const { icon, text } = item;
 
   function handleClick() {
-    onClick(item);
+    if (onClick) {
+      onClick(item);
+    }
   }
 
   return (
