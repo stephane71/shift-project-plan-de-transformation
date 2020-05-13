@@ -1,6 +1,11 @@
-html, body {
+html,
+body {
   height: 100vh;
   margin: 0;
+}
+
+#__next {
+  height: 100%;
 }
 
 .container {
