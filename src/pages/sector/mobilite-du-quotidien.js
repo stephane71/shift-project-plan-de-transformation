@@ -1,25 +1,19 @@
-import React, { useRef, useEffect, useState } from "react";
-import marked from "marked";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import ReactMD from "react-markdown";
+import toc from "remark-toc";
 
-import rawMd from "!raw-loader!./mobilite-du-quotidien.md";
+import rawMd from "./mobilite-du-quotidien.md";
+import styles from "./styles";
+
+const useStyles = makeStyles(styles);
 
 function Page() {
-  const contentRef = useRef(null);
-  const [mdContent, setMdContent] = useState("");
+  const classes = useStyles();
 
-  useEffect(() => {
-    if (contentRef) {
-      setMdContent(rawMd);
-    }
-  }, [contentRef]);
-
-  useEffect(() => {
-    if (contentRef && mdContent) {
-      contentRef.current.innerHTML = marked(mdContent);
-    }
-  }, [mdContent]);
-
-  return <div ref={contentRef} />;
+  return (
+    <ReactMD source={rawMd} plugins={[toc]} className={classes.customMd} />
+  );
 }
 
 export default Page;
