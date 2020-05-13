@@ -11,15 +11,16 @@
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
-    "marked": "^1.0.0",
     "next": "9.3.6",
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.1",
     "react": "16.13.1",
     "react-cosmos": "^5.2.1",
     "react-dom": "16.13.1",
+    "react-markdown": "^4.3.1",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "remark-toc": "^7.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
