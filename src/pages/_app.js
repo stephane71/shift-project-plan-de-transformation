@@ -10,13 +10,7 @@ import makeStore from "../makeStore";
 import theme from "../theme";
 import "../styles.css";
 
-import menuJSON from "../articles/menu.json";
-
-const menu = menuJSON.map(({ fileName, title }) => ({
-  id: fileName,
-  text: title,
-  keyword: fileName.split(".").shift()
-}));
+import appStaticProps from "../appStaticProps.json";
 
 const INITIAL_STATE = {};
 const store = makeStore(INITIAL_STATE);
@@ -24,13 +18,14 @@ const store = makeStore(INITIAL_STATE);
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
+    const { menu } = appStaticProps;
 
     return (
       <Provider store={store}>
         <MuiThemeProvider theme={theme}>
           <AppLayout>
             <CssBaseline />
-            <AppFrame menuList={[menu]} title="">
+            <AppFrame menuList={[menu]} title={""}>
               <Component {...pageProps} />
             </AppFrame>
           </AppLayout>
