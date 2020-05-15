@@ -13,7 +13,7 @@ function ListItemMenu({ item }) {
   const { icon, text, keyword } = item;
 
   return (
-    <NextLink href={`/sector/${keyword}`} as={`/sector/${keyword}`}>
+    <NextLink href="/sector/[slug]" as={`/sector/${keyword}`}>
       <ListItem button>
         {icon && <ListItemIcon>{icon}</ListItemIcon>}
         <ListItemText primary={text} />
