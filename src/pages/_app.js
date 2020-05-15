@@ -1,19 +1,21 @@
 import React from "react";
 import App from "next/app";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import { Provider } from "react-redux";
 
 import AppLayout from "../components/AppLayout";
 import AppFrame from "../components/AppFrame";
 import makeStore from "../makeStore";
+import theme from "../theme";
 import "../styles.css";
 
-import data from "../../public/data.json";
+import menuJSON from "../articles/menu.json";
 
-const TEST_MENU1 = data.map(item => ({
-  ...item,
-  id: item.title,
-  text: item.title
+const menu = menuJSON.map(({ fileName, title }) => ({
+  id: fileName,
+  text: title,
+  keyword: fileName.split(".").shift()
 }));
 
 const INITIAL_STATE = {};
@@ -25,12 +27,14 @@ class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <AppLayout>
-          <CssBaseline />
-          <AppFrame menuList={[TEST_MENU1]} title="">
-            <Component {...pageProps} />
-          </AppFrame>
-        </AppLayout>
+        <MuiThemeProvider theme={theme}>
+          <AppLayout>
+            <CssBaseline />
+            <AppFrame menuList={[menu]} title="">
+              <Component {...pageProps} />
+            </AppFrame>
+          </AppLayout>
+        </MuiThemeProvider>
       </Provider>
     );
   }
