@@ -1,6 +1,9 @@
 const fs = require("fs");
+const join = require("path").join;
+const constants = require("./constants");
 
-const articlesPath = "./src/articles";
+const { ARTICLE_PATH } = constants;
+
 const headerRegExp = /---meta-start[\r\n]([\s\S]*)[\r\n]---meta-end/;
 const headerKeyValueRegExp = /(.*): (.*)/g;
 
@@ -24,17 +27,11 @@ function getHeaders(markdown) {
   return headers;
 }
 
-function generateMenuFromArticles() {
-  const articlesNotFiltered = fs.readdirSync(articlesPath);
-  const articles = articlesNotFiltered.filter(
-    fileName => fileName.split(".").pop() === "md"
-  );
+function getArticle(slug) {
+  const fullPath = join(ARTICLE_PATH, `${slug}.md`);
+  const md = fs.readFileSync(fullPath, "utf8");
 
-  return articles.map(fileName => {
-    const md = fs.readFileSync(`${articlesPath}/${fileName}`, "utf8");
-    return { ...getHeaders(md), fileName };
-  });
+  return { meta: getHeaders(md), content: md, slug };
 }
 
-const menu = generateMenuFromArticles();
-fs.writeFileSync("./src/articles/menu.json", JSON.stringify(menu));
+module.exports = getArticle;
