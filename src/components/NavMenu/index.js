@@ -10,10 +10,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListBase from "../List";
 
 function ListItemMenu({ item }) {
-  const { icon, text } = item;
+  const { icon, text, keyword } = item;
 
   return (
-    <NextLink href={`/sector/${item.keyword}`} as={`/sector/${item.keyword}`}>
+    <NextLink href={`/sector/${keyword}`} as={`/sector/${keyword}`}>
       <ListItem button>
         {icon && <ListItemIcon>{icon}</ListItemIcon>}
         <ListItemText primary={text} />
