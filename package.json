@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run generateMenu && next build",
+    "dev": "npm run appGetStaticProps && next dev",
+    "build": "npm run appGetStaticProps && next build",
     "start": "next start",
     "cosmos": "cosmos",
-    "generateMenu": "node ./scripts/generateMenuFromArticles.js"
+    "appGetStaticProps": "node ./scripts/appGetStaticProps.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
