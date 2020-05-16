@@ -25,7 +25,7 @@ class MyApp extends App {
         <MuiThemeProvider theme={theme}>
           <AppLayout>
             <CssBaseline />
-            <AppFrame menuList={[menu]} title={""}>
+            <AppFrame menuList={[menu]} title="">
               <Component {...pageProps} />
             </AppFrame>
           </AppLayout>
