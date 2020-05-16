@@ -7,6 +7,7 @@ import { DRAWER_WIDTH } from "../../constants";
 import AppBar from "../AppBar";
 import Nav from "../Nav";
 import NavMenu from "../NavMenu";
+import NavHeader from "../NavHeader";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,26 +28,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function AppFrame({ children, title, menuList, onClickItemMenu }) {
+function AppFrame({ children, title, menuList }) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
+  function toggleDrawer() {
     setMobileOpen(!mobileOpen);
-  };
+  }
 
   return (
     <div className={classes.root}>
       <AppBar
         drawerWidth={DRAWER_WIDTH}
         title={title}
-        onClickOpenDrawer={handleDrawerToggle}
+        onClickOpenDrawer={toggleDrawer}
       />
       <nav className={classes.drawer} aria-label="mailbox folders">
         <Nav
-          menu={<NavMenu items={menuList} onClickItem={onClickItemMenu} />}
+          menu={<NavMenu items={menuList} onClickItem={toggleDrawer} />}
+          header={<NavHeader onClick={toggleDrawer} />}
           open={mobileOpen}
-          onClose={handleDrawerToggle}
+          onClose={toggleDrawer}
         />
       </nav>
       <main className={classes.content}>
@@ -60,8 +62,7 @@ function AppFrame({ children, title, menuList, onClickItemMenu }) {
 AppFrame.propTypes = {
   children: PropTypes.any,
   title: PropTypes.string,
-  menuList: PropTypes.array,
-  onClickItemMenu: PropTypes.func
+  menuList: PropTypes.array
 };
 
 export default AppFrame;
