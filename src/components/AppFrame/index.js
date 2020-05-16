@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import { DRAWER_WIDTH } from "../../constants";
 
@@ -31,9 +32,12 @@ const useStyles = makeStyles(theme => ({
 function AppFrame({ children, title, menuList }) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const matches = useMediaQuery(theme => theme.breakpoints.up("sm"));
 
   function toggleDrawer() {
-    setMobileOpen(!mobileOpen);
+    if (!matches) {
+      setMobileOpen(!mobileOpen);
+    }
   }
 
   return (
