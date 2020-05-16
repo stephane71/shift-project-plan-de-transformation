@@ -1,8 +1,9 @@
 const styles = theme => ({
   home: {},
 
-  about: {
-    marginTop: theme.spacing(5)
+  aboutHeader: {
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(2)
   },
 
   main: {
