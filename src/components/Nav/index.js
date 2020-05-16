@@ -10,7 +10,7 @@ import styles from "./styles";
 
 const useStyles = makeStyles(styles);
 
-function Nav({ menu, open, onClose }) {
+function Nav({ menu, header, open, onClose }) {
   const classes = useStyles();
 
   return (
@@ -25,10 +25,10 @@ function Nav({ menu, open, onClose }) {
             paper: classes.drawerPaper
           }}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true
           }}
         >
-          <div className={classes.toolbar} />
+          <div className={classes.toolbar}>{header}</div>
           <Divider />
           {menu}
         </Drawer>
@@ -41,7 +41,7 @@ function Nav({ menu, open, onClose }) {
           variant="permanent"
           open
         >
-          <div className={classes.toolbar} />
+          <div className={classes.toolbar}>{header}</div>
           <Divider />
           {menu}
         </Drawer>
@@ -50,10 +50,15 @@ function Nav({ menu, open, onClose }) {
   );
 }
 
-Nav.defaultProps = {};
+Nav.defaultProps = {
+  open: false
+};
 
 Nav.propTypes = {
-  menu: PropTypes.element.isRequired
+  menu: PropTypes.element.isRequired,
+  header: PropTypes.element.isRequired,
+  open: PropTypes.bool,
+  onClose: PropTypes.func.isRequired
 };
 
 export default Nav;
