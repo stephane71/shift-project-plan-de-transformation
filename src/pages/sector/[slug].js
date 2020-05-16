@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 import getArticleList from "../../utils/getArticleList";
 import getArticle from "../../utils/getArticle";
@@ -8,15 +9,27 @@ import Article from "../../components/Article";
 
 const useStyles = makeStyles(theme => ({
   article: {
-    padding: `0 ${theme.spacing(2)}px`
+    padding: theme.spacing(2)
+  },
+  articleTopBar: {
+    textAlign: "right"
   }
 }));
 
-export default function Sector({ content }) {
+export default function Sector({ content, slug }) {
   const classes = useStyles();
 
   return (
     <div className={classes.article}>
+      <div className={classes.articleTopBar}>
+        <Button
+          size="small"
+          target="_blank"
+          href={`https://github.com/stephane71/shift-project-plan-de-transformation/blob/master/src/articles/${slug}.md`}
+        >
+          Editer cette page
+        </Button>
+      </div>
       <Article content={content} />
     </div>
   );
