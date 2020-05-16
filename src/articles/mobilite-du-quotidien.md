@@ -4,16 +4,8 @@ title: Mobilité du quotidien
 
 # Mobilité du quotidien
 
-| Feature   | Support |
-| --------- | ------- |
-| tables    | ✔       |
-| alignment | ✔       |
-| wewt      | ✔       |
-
 ## Table of Contents
-----
-test: coucou
----
+
 ## Résumé
 
 ### Réduire
