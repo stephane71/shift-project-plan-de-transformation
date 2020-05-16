@@ -20,12 +20,9 @@ const useStyles = makeStyles(theme => ({
       flexShrink: 0
     }
   },
-
   toolbar: theme.mixins.toolbar,
-
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3)
+    flexGrow: 1
   }
 }));
 
@@ -47,7 +44,7 @@ function AppFrame({ children, title, menuList }) {
         title={title}
         onClickOpenDrawer={toggleDrawer}
       />
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="Articles">
         <Nav
           menu={<NavMenu items={menuList} onClickItem={toggleDrawer} />}
           header={<NavHeader onClick={toggleDrawer} />}
