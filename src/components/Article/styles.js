@@ -49,6 +49,9 @@ const styles = theme => ({
       whiteSpace: "pre",
       borderBottom: `1px solid ${theme.palette.divider}`,
       padding: 16
+    },
+    "& h1": {
+      marginTop: 0
     }
   }
 });
