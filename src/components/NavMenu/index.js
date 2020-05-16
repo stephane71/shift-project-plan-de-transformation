@@ -9,12 +9,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import ListBase from "../List";
 
-function ListItemMenu({ item }) {
+function ListItemMenu({ item, onClickItem }) {
   const { icon, text, keyword } = item;
 
   return (
     <NextLink href="/sector/[slug]" as={`/sector/${keyword}`}>
-      <ListItem button>
+      <ListItem button onClick={onClickItem}>
         {icon && <ListItemIcon>{icon}</ListItemIcon>}
         <ListItemText primary={text} />
       </ListItem>
@@ -27,8 +27,8 @@ ListItemMenu.propTypes = {
 };
 
 function NavMenu({ items, onClickItem }) {
-  function renderItem(item) {
-    return <ListItemMenu key={item.id} item={item} />;
+  function renderItem(item, onClickItem) {
+    return <ListItemMenu key={item.id} item={item} onClickItem={onClickItem} />;
   }
 
   return (
