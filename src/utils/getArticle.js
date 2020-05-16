@@ -31,7 +31,7 @@ function getArticle(slug) {
   const fullPath = join(ARTICLE_PATH, `${slug}.md`);
   const md = fs.readFileSync(fullPath, "utf8");
 
-  return { meta: getHeaders(md), content: md, slug };
+  return { meta: getHeaders(md), content: md.replace(headerRegExp, ""), slug };
 }
 
 module.exports = getArticle;
