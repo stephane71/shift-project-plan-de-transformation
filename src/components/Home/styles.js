@@ -1,5 +1,7 @@
 const styles = theme => ({
-  home: {},
+  home: {
+    padding: theme.spacing(2)
+  },
 
   aboutHeader: {
     marginTop: theme.spacing(5),
